@@ -1,11 +1,11 @@
 describe('submit', function() {
     var submitted, originalTimeout;
 
-    $.fn.bootstrapValidator.validators.fake_remote = {
+    FormValidation.Validator.fakeRemote = {
         validate: function(validator, $field, options) {
             var dfd = new $.Deferred();
             setTimeout(function() {
-                dfd.resolve($field, 'fake_remote', { valid: options.valid });
+                dfd.resolve($field, 'fakeRemote', { valid: options.valid });
             }, 0);
             return dfd;
         }
@@ -23,8 +23,8 @@ describe('submit', function() {
 
         this.$form = $('#submitForm');
         this.$form
-            .bootstrapValidator()
-            .on('success.form.bv', function(e) {
+            .formValidation()
+            .on('success.form.fv', function(e) {
                 e.preventDefault();
                 ++submitted;
             })
@@ -33,15 +33,15 @@ describe('submit', function() {
             });
             
         submitted      = 0;
-        this.bv        = this.$form.data('bootstrapValidator');
-        this.$username = this.bv.getFieldElements('username');
+        this.fv        = this.$form.data('formValidation');
+        this.$username = this.fv.getFieldElements('username');
 
         originalTimeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
         jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
     });
 
     afterEach(function() {
-        $('#submitForm').bootstrapValidator('destroy').remove();
+        $('#submitForm').formValidation('destroy').remove();
         jasmine.DEFAULT_TIMEOUT_INTERVAL = originalTimeout;
     });
 
@@ -56,7 +56,7 @@ describe('submit', function() {
 
     // #481
     it('with callback returning true', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
                 callback: {
                     message: 'Please enter an username',
@@ -75,7 +75,7 @@ describe('submit', function() {
 
     // #481
     it('with callback returning false', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
                 callback: {
                     message: 'Please enter an username',
@@ -94,7 +94,7 @@ describe('submit', function() {
 
     // #481
     it('with remote returning true', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
                 remote: {
                     url: '/test/valid.json',
@@ -106,12 +106,12 @@ describe('submit', function() {
         setTimeout(function() {
             expect(submitted).toBe(1);
             done();
-        }, 3000);
+        }, 100);
     });
 
     // #481
     it('with remote returning false', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
                 remote: {
                     url: '/test/invalid.json',
@@ -123,14 +123,14 @@ describe('submit', function() {
         setTimeout(function() {
             expect(submitted).toBe(0);
             done();
-        }, 3000);
+        }, 100);
     });
 
     // #481
     it('with fake remote returning true', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
-                fake_remote: {
+                fakeRemote: {
                     message: 'The username is not available',
                     valid: true
                 }
@@ -145,9 +145,9 @@ describe('submit', function() {
 
     // #481
     it('with fake remote returning false', function(done) {
-        this.bv.addField('username', {
+        this.fv.addField('username', {
             validators: {
-                fake_remote: {
+                fakeRemote: {
                     message: 'The username is not available',
                     valid: false
                 }
@@ -156,6 +156,30 @@ describe('submit', function() {
         $('#sendButton').click();
         setTimeout(function() {
             expect(submitted).toBe(0);
+            done();
+        }, 100);
+    });
+
+    // #1344
+    it('remote validator trigger err.form.fv event', function(done) {
+        var errorTriggered = 0;
+
+        this.$form
+            .on('err.form.fv', function(e) {
+                errorTriggered++;
+            });
+
+        this.fv.addField('username', {
+            validators: {
+                remote: {
+                    url: '/test/valid.json'
+                }
+            }
+        });
+
+        $('#sendButton').click();
+        setTimeout(function() {
+            expect(errorTriggered).toBe(0);
             done();
         }, 100);
     });

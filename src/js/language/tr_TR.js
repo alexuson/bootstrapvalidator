@@ -3,7 +3,7 @@
      * Turkish language package
      * Translated By @CeRBeR666
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'tr_TR': {
             base64: {
                 'default': 'Lütfen 64 bit tabanına uygun bir giriş yapınız'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Lütfen %s ile %s arasında bir değer giriniz',
                 notInclusive: 'Lütfen sadece %s ile %s arasında bir değer giriniz'
+            },
+            bic: {
+                'default': 'Lütfen geçerli bir BIC numarası giriniz'
             },
             callback: {
                 'default': 'Lütfen geçerli bir değer giriniz'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Lütfen geçerli bir Hexadecimal sayı giriniz'
             },
-            hexColor: {
-                'default': 'Lütfen geçerli bir HEX codu giriniz'
-            },
             iban: {
                 'default': 'Lütfen geçerli bir IBAN numarası giriniz',
-                countryNotSupported: '%s ülke kodu desteklenmemektedir',
                 country: 'Lütfen geçerli bir IBAN numarası giriniz içinde %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Lütfen geçerli bir tanımlama numarası giriniz',
-                countryNotSupported: '%s ülke kodu desteklenmiyor',
                 country: 'Lütfen geçerli bir kimlik numarası giriniz içinde %s',
                 countries: {
                     BA: 'Bosna Hersek',
@@ -180,6 +178,7 @@
                     ME: 'Karadağ',
                     MK: 'Makedonya',
                     NL: 'Hollanda',
+                    PL: 'Polanya',
                     RO: 'Romanya',
                     RS: 'Sırbistan',
                     SE: 'İsveç',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Lütfen geçerli bir telefon numarası giriniz',
-                countryNotSupported: '%s ülke kodu desteklenmemektedir',
                 country: 'Lütfen geçerli bir telefon numarası giriniz içinde %s',
                 countries: {
                     AE: 'Birleşik Arap Emirlikleri',
+                    BG: 'Bulgaristan',
                     BR: 'Brezilya',
                     CN: 'Çin',
                     CZ: 'Çek Cumhuriyeti',
@@ -249,7 +248,9 @@
                     ES: 'İspanya',
                     FR: 'Fransa',
                     GB: 'İngiltere',
+                    IN: 'Hindistan',
                     MA: 'Fas',
+                    NL: 'Hollanda',
                     PK: 'Pakistan',
                     RO: 'Romanya',
                     RU: 'Rusya',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Lütfen geçerli bir VAT kodu giriniz',
-                countryNotSupported: '%s ülke kodu desteklenmiyor',
                 country: 'Lütfen geçerli bir vergi numarası giriniz içinde %s',
                 countries: {
                     AT: 'Avustralya',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Lütfen geçerli bir posta kodu giriniz',
-                countryNotSupported: '%s ülke kodu desteklenmemektedir',
                 country: 'Lütfen geçerli bir posta kodu giriniz içinde %s',
                 countries: {
                     AT: 'Avustralya',
+                    BG: 'Bulgaristan',
                     BR: 'Brezilya',
                     CA: 'Kanada',
                     CH: 'İsviçre',
                     CZ: 'Çek Cumhuriyeti',
                     DE: 'Almanya',
                     DK: 'Danimarka',
+                    ES: 'İspanya',
                     FR: 'Fransa',
                     GB: 'İngiltere',
                     IE: 'Irlanda',
+                    IN: 'Hindistan',
                     IT: 'İtalya',
                     MA: 'Fas',
                     NL: 'Hollanda',
+                    PL: 'Polanya',
                     PT: 'Portekiz',
                     RO: 'Romanya',
                     RU: 'Rusya',

@@ -1,5 +1,13 @@
+/**
+ * remote validator
+ *
+ * @link        http://formvalidation.io/validators/remote/
+ * @author      https://twitter.com/nghuuphuoc
+ * @copyright   (c) 2013 - 2015 Nguyen Huu Phuoc
+ * @license     http://formvalidation.io/license/
+ */
 (function($) {
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n || {}, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {
         'en_US': {
             remote: {
                 'default': 'Please enter a valid value'
@@ -7,57 +15,66 @@
         }
     });
 
-    $.fn.bootstrapValidator.validators.remote = {
+    FormValidation.Validator.remote = {
         html5Attributes: {
+            crossdomain: 'crossDomain',
+            data: 'data',
+            datatype: 'dataType',
+            delay: 'delay',
             message: 'message',
             name: 'name',
             type: 'type',
             url: 'url',
-            data: 'data',
-            delay: 'delay'
+            validkey: 'validKey'
         },
 
         /**
-         * Destroy the timer when destroying the bootstrapValidator (using validator.destroy() method)
+         * Destroy the timer when destroying the FormValidation (using validator.destroy() method)
          */
         destroy: function(validator, $field, options) {
-            if ($field.data('bv.remote.timer')) {
-                clearTimeout($field.data('bv.remote.timer'));
-                $field.removeData('bv.remote.timer');
+            var ns    = validator.getNamespace(),
+                timer = $field.data(ns + '.remote.timer');
+            if (timer) {
+                clearTimeout(timer);
+                $field.removeData(ns + '.remote.timer');
             }
         },
 
         /**
          * Request a remote server to check the input value
          *
-         * @param {BootstrapValidator} validator Plugin instance
+         * @param {FormValidation.Base} validator Plugin instance
          * @param {jQuery} $field Field element
          * @param {Object} options Can consist of the following keys:
-         * - url {String|Function}
-         * - type {String} [optional] Can be GET or POST (default)
+         * - crossDomain {Boolean} [optional]
          * - data {Object|Function} [optional]: By default, it will take the value
          *  {
          *      <fieldName>: <fieldValue>
          *  }
-         * - delay
+         * - dataType {String} [optional]: The type of data which is returned by remote server.
+         * It can be json (default), text, script
+         * - delay {Number} [optional]
+         * - headers {String[]} [optional]: Additional headers
+         * - message {String} [optional]: The invalid message
          * - name {String} [optional]: Override the field name for the request.
-         * - message: The invalid message
-         * - headers: Additional headers
+         * - type {String} [optional] Can be GET or POST (default)
+         * - url {String|Function}
+         * - validKey {String} [optional]: The valid key. It's "valid" by default
+         * This is useful when connecting to external remote server or APIs provided by 3rd parties
          * @returns {Deferred}
          */
         validate: function(validator, $field, options) {
-            var value = $field.val(),
+            var ns    = validator.getNamespace(),
+                value = validator.getFieldValue($field, 'remote'),
                 dfd   = new $.Deferred();
             if (value === '') {
                 dfd.resolve($field, 'remote', { valid: true });
                 return dfd;
             }
-
-            var name    = $field.attr('data-bv-field'),
-                data    = options.data || {},
-                url     = options.url,
-                type    = options.type || 'GET',
-                headers = options.headers || {};
+            var name     = $field.attr('data-' + ns + '-field'),
+                data     = options.data || {},
+                url      = options.url,
+                validKey = options.validKey || 'valid';
 
             // Support dynamic data
             if ('function' === typeof data) {
@@ -75,18 +92,33 @@
             }
 
             data[options.name || name] = value;
+
+            var ajaxOptions = {
+                data: data,
+                dataType: options.dataType || 'json',
+                headers: options.headers || {},
+                type: options.type || 'GET',
+                url: url
+            };
+            if (options.crossDomain !== null) {
+                ajaxOptions.crossDomain = (options.crossDomain === true || options.crossDomain === 'true');
+            }
+
             function runCallback() {
-                var xhr = $.ajax({
-                    type: type,
-                    headers: headers,
-                    url: url,
-                    dataType: 'json',
-                    data: data
-                });
-                xhr.then(function(response) {
-                    response.valid = response.valid === true || response.valid === 'true';
-                    dfd.resolve($field, 'remote', response);
-                });
+                var xhr = $.ajax(ajaxOptions);
+
+                xhr
+                    .success(function(response) {
+                        response.valid = (response[validKey] === true || response[validKey] === 'true')
+                                        ? true
+                                        : (response[validKey] === false || response[validKey] === 'false' ? false : null);
+                        dfd.resolve($field, 'remote', response);
+                    })
+                    .error(function(response) {
+                        dfd.resolve($field, 'remote', {
+                            valid: false
+                        });
+                    });
 
                 dfd.fail(function() {
                     xhr.abort();
@@ -98,11 +130,11 @@
             if (options.delay) {
                 // Since the form might have multiple fields with the same name
                 // I have to attach the timer to the field element
-                if ($field.data('bv.remote.timer')) {
-                    clearTimeout($field.data('bv.remote.timer'));
+                if ($field.data(ns + '.remote.timer')) {
+                    clearTimeout($field.data(ns + '.remote.timer'));
                 }
 
-                $field.data('bv.remote.timer', setTimeout(runCallback, options.delay));
+                $field.data(ns + '.remote.timer', setTimeout(runCallback, options.delay));
                 return dfd;
             } else {
                 return runCallback();

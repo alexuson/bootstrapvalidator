@@ -3,7 +3,7 @@
      * Vietnamese language package
      * Translated by @nghuuphuoc
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'vi_VN': {
             base64: {
                 'default': 'Vui lòng nhập chuỗi mã hoá base64 hợp lệ'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Vui lòng nhập giá trị nằm giữa %s và %s',
                 notInclusive: 'Vui lòng nhập giá trị nằm giữa %s và %s'
+            },
+            bic: {
+                'default': 'Vui lòng nhập số BIC hợp lệ'
             },
             callback: {
                 'default': 'Vui lòng nhập giá trị hợp lệ'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Vui lòng nhập số hexa hợp lệ'
             },
-            hexColor: {
-                'default': 'Vui lòng nhập mã màu hợp lệ'
-            },
             iban: {
                 'default': 'Vui lòng nhập số IBAN hợp lệ',
-                countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
                 country: 'Vui lòng nhập mã IBAN hợp lệ của %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Vui lòng nhập mã ID hợp lệ',
-                countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
                 country: 'Vui lòng nhập mã ID hợp lệ của %s',
                 countries: {
                     BA: 'Bosnia và Herzegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Macedonia',
                     NL: 'Hà Lan',
+                    PL: 'Ba Lan',
                     RO: 'Romania',
                     RS: 'Serbia',
                     SE: 'Thuỵ Điển',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Vui lòng nhập số điện thoại hợp lệ',
-                countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
                 country: 'Vui lòng nhập số điện thoại hợp lệ của %s',
                 countries: {
                     AE: 'Tiểu vương quốc Ả Rập thống nhất',
+                    BG: 'Bulgaria',
                     BR: 'Brazil',
                     CN: 'Trung Quốc',
                     CZ: 'Séc',
@@ -249,7 +248,9 @@
                     ES: 'Tây Ban Nha',
                     FR: 'Pháp',
                     GB: 'Vương quốc Anh',
+                    IN: 'Ấn Độ',
                     MA: 'Maroc',
+                    NL: 'Hà Lan',
                     PK: 'Pakistan',
                     RO: 'Romania',
                     RU: 'Nga',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Vui lòng nhập số VAT hợp lệ',
-                countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
                 country: 'Vui lòng nhập số VAT hợp lệ của %s',
                 countries: {
                     AT: 'Áo',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Vui lòng nhập mã bưu điện hợp lệ',
-                countryNotSupported: 'Mã quốc gia %s không được hỗ trợ',
                 country: 'Vui lòng nhập mã bưu điện hợp lệ của %s',
                 countries: {
                     AT: 'Áo',
+                    BG: 'Bulgaria',
                     BR: 'Brazil',
                     CA: 'Canada',
                     CH: 'Thuỵ Sĩ',
                     CZ: 'Séc',
                     DE: 'Đức',
                     DK: 'Đan Mạch',
+                    ES: 'Tây Ban Nha',
                     FR: 'Pháp',
                     GB: 'Vương quốc Anh',
                     IE: 'Ireland',
+                    IN: 'Ấn Độ',
                     IT: 'Ý',
                     MA: 'Maroc',
                     NL: 'Hà Lan',
+                    PL: 'Ba Lan',
                     PT: 'Bồ Đào Nha',
                     RO: 'Romania',
                     RU: 'Nga',

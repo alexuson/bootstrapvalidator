@@ -3,27 +3,24 @@ describe('dynamic fields', function() {
         $([
             '<form class="form-horizontal" id="dynamicForm">',
                 '<div class="form-group">',
+                    '<input type="text" name="userName" class="form-control" required />',
+                '</div>',
+                '<div class="form-group">',
                     '<input type="text" name="fullName" class="form-control" />',
                 '</div>',
             '</form>'
         ].join('\n')).appendTo('body');
 
-        $('#dynamicForm').bootstrapValidator({
+        $('#dynamicForm').formValidation({
             fields: {
-                fullName: {
+                userName: {
                     validators: {
                         notEmpty: {
-                            message: 'The full name is required and cannot be empty'
-                        },
-                        stringLength: {
-                            min: 8,
-                            max: 40,
-                            message: 'The full name must be more than %s and less than %s characters long'
+                            message: 'The user name is required and cannot be empty'
                         },
                         regexp: {
-                            enabled: false,
-                            regexp: /^[a-zA-Z\s]+$/,
-                            message: 'The full name can only consist of alphabetical, number, and space'
+                            regexp: /^[a-zA-Z]+$/,
+                            message: 'The user name can only consist of alphabetical, number'
                         }
                     }
                 },
@@ -38,15 +35,15 @@ describe('dynamic fields', function() {
             }
         });
 
-        this.bv        = $('#dynamicForm').data('bootstrapValidator');
-        this.$fullName = this.bv.getFieldElements('fullName');
+        this.fv        = $('#dynamicForm').data('formValidation');
+        this.$userName = this.fv.getFieldElements('userName');
     });
 
     afterEach(function() {
-        $('#dynamicForm').bootstrapValidator('destroy').remove();
+        $('#dynamicForm').formValidation('destroy').remove();
     });
 
-    // https://github.com/nghuuphuoc/bootstrapvalidator/pull/725
+    // https://github.com/formvalidation/formvalidation/pull/725
     it('adding field [does not exist but is already set in "fields" option]', function() {
         var $div   = $('<div/>').addClass('form-group').appendTo($('#dynamicForm'));
             $email = $('<input/>')
@@ -55,19 +52,39 @@ describe('dynamic fields', function() {
                         .attr('name', 'email')
                         .appendTo($div);
 
-        this.bv.addField('email');
+        this.fv.addField('email');
 
-        this.$fullName.val('Phuoc Nguyen');
+        this.$userName.val('FormValidation');
 
         $email.val('not valid@email');
-        this.bv.validate();
-        expect(this.bv.isValidField('email')).toBeFalsy();
-        expect(this.bv.isValid()).toBeFalsy();
+        this.fv.validate();
+        expect(this.fv.isValidField('email')).toBeFalsy();
+        expect(this.fv.isValid()).toBeFalsy();
 
-        this.bv.resetForm();
+        this.fv.resetForm();
         $email.val('valid@email.com');
-        this.bv.validate();
-        expect(this.bv.isValidField('email')).toBeTruthy();
-        expect(this.bv.isValid()).toBeTruthy();
+        this.fv.validate();
+        expect(this.fv.isValidField('email')).toBeTruthy();
+        expect(this.fv.isValid()).toBeTruthy();
     });
+
+    // support#48
+    it('Override the options when adding field', function() {
+        var options = {
+            validators: {
+                stringLength: {
+                    min: 6,
+                    max: 20
+                }
+            }
+        };
+
+        $('#dynamicForm')
+            .formValidation('destroy')
+            .formValidation()
+            .formValidation('addField', 'userName', options);
+
+        // The options shouldn't contain the notEmpty validator (userName field have required attribute)
+        expect(options.validators.notEmpty).toBeUndefined();
+    })
 });

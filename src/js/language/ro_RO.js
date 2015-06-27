@@ -3,7 +3,7 @@
      * Romanian language package
      * Translated by @filipac
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'ro_RO': {
             base64: {
                 'default': 'Te rog introdu un base64 valid'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Te rog introdu o valoare intre %s si %s',
                 notInclusive: 'Te rog introdu o valoare doar intre %s si %s'
+            },
+            bic: {
+                'default': 'Te rog sa introduci un numar BIC valid'
             },
             callback: {
                 'default': 'Te rog introdu o valoare valida'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Te rog sa introduci un numar hexadecimal valid'
             },
-            hexColor: {
-                'default': 'Te rog sa introduci o culoare hex valida'
-            },
             iban: {
                 'default': 'Te rog sa introduci un IBAN valid',
-                countryNotSupported: 'Tara %s nu este acceptata',
                 country: 'Te rog sa introduci un IBAN valid din %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Te rog sa introduci un numar de identificare valid',
-                countryNotSupported: 'Codul %s nu este suportat',
                 country: 'Te rog sa introduci un numar de identificare valid din %s',
                 countries: {
                     BA: 'Bosnia si Herzegovina',
@@ -180,6 +178,7 @@
                     ME: 'Muntenegru',
                     MK: 'Macedonia',
                     NL: 'Olanda',
+                    PL: 'Polanda',
                     RO: 'Romania',
                     RS: 'Serbia',
                     SE: 'Suedia',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Te rog sa introduci un numar de telefon valid',
-                countryNotSupported: 'Prefixul %s nu este suportat',
                 country: 'Te rog sa introduci un numar de telefon valid din %s',
                 countries: {
                     AE: 'Emiratele Arabe unite',
+                    BG: 'Bulgaria',
                     BR: 'Brazilia',
                     CN: 'China',
                     CZ: 'Republica Cehia',
@@ -249,7 +248,9 @@
                     ES: 'Spania',
                     FR: 'Franta',
                     GB: 'Regatul Unit',
+                    IN: 'India',
                     MA: 'Maroc',
+                    NL: 'Olanda',
                     PK: 'Pakistan',
                     RO: 'Romania',
                     RU: 'Rusia',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Te rog sa introduci un numar TVA valid',
-                countryNotSupported: 'Tara %s nu este acceptata',
                 country: 'Te rog sa introduci un numar TVA valid din %s',
                 countries: {
                     AT: 'Austria',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Te rog sa introduci un cod postal valid',
-                countryNotSupported: 'Tara %s nu este acceptata',
                 country: 'Te rog sa introduci un cod postal valid din %s',
                 countries: {
                     AT: 'Austria',
+                    BG: 'Bulgaria',
                     BR: 'Brazilia',
                     CA: 'Canada',
                     CH: 'Elvetia',
                     CZ: 'Republica Cehia',
                     DE: 'Germania',
                     DK: 'Danemarca',
+                    ES: 'Spania',
                     FR: 'Franta',
                     GB: 'Regatul Unit',
                     IE: 'Irlanda',
+                    IN: 'India',
                     IT: 'Italia',
                     MA: 'Maroc',
                     NL: 'Olanda',
+                    PL: 'Polanda',
                     PT: 'Portugalia',
                     RO: 'Romania',
                     RU: 'Rusia',

@@ -3,7 +3,7 @@
      * The Dutch language package
      * Translated by @jvanderheide
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'nl_NL': {
             base64: {
                 'default': 'Voer een geldige Base64 geëncodeerde tekst in'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Voer een waarde in van %s tot en met %s',
                 notInclusive: 'Voer een waarde die tussen %s en %s ligt'
+            },
+            bic: {
+                'default': 'Voer een geldige BIC-code in'
             },
             callback: {
                 'default': 'Voer een geldige waarde in'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Voer een geldig hexadecimaal nummer in'
             },
-            hexColor: {
-                'default': 'Voer een geldige hexadecimale kleurcode in'
-            },
             iban: {
                 'default': 'Voer een geldig IBAN nummer in',
-                countryNotSupported: 'De land code %s wordt niet ondersteund',
                 country: 'Voer een geldig IBAN nummer in uit %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Voer een geldig identificatie nummer in',
-                countryNotSupported: 'De land code %s wordt niet ondersteund',
                 country: 'Voer een geldig identificatie nummer in uit %s',
                 countries: {
                     BA: 'Bosnië en Herzegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Macedonië',
                     NL: 'Nederland',
+                    PL: 'Polen',
                     RO: 'Roemenië',
                     RS: 'Servië',
                     SE: 'Zweden',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Voer een geldig telefoonnummer in',
-                countryNotSupported: 'De land code %s wordt niet ondersteund',
                 country: 'Voer een geldig telefoonnummer in uit %s',
                 countries: {
                     AE: 'Verenigde Arabische Emiraten',
+                    BG: 'Bulgarije',
                     BR: 'Brazilië',
                     CN: 'China',
                     CZ: 'Tsjechische Republiek',
@@ -249,7 +248,9 @@
                     ES: 'Spanje',
                     FR: 'Frankrijk',
                     GB: 'Verenigd Koninkrijk',
+                    IN: 'Indië',
                     MA: 'Marokko',
+                    NL: 'Nederland',
                     PK: 'Pakistan',
                     RO: 'Roemenië',
                     RU: 'Rusland',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Voer een geldig BTW-nummer in',
-                countryNotSupported: 'De land code %s wordt niet ondersteund',
                 country: 'Voer een geldig BTW-nummer in uit %s',
                 countries: {
                     AT: 'Oostenrijk',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Voer een geldige postcode in',
-                countryNotSupported: 'De land code %s wordt niet ondersteund',
                 country: 'Voer een geldige postcode in uit %s',
                 countries: {
                     AT: 'Oostenrijk',
+                    BG: 'Bulgarije',
                     BR: 'Brazilië',
                     CA: 'Canada',
                     CH: 'Zwitserland',
                     CZ: 'Tsjechische Republiek',
                     DE: 'Duitsland',
                     DK: 'Denemarken',
+                    ES: 'Spanje',
                     FR: 'Frankrijk',
                     GB: 'Verenigd Koninkrijk',
                     IE: 'Ierland',
+                    IN: 'Indië',
                     IT: 'Italië',
                     MA: 'Marokko',
                     NL: 'Nederland',
+                    PL: 'Polen',
                     PT: 'Portugal',
                     RO: 'Roemenië',
                     RU: 'Rusland',

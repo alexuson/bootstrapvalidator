@@ -3,7 +3,7 @@
      * Swedish language package
      * Translated by @ulsa
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'sv_SE': {
             base64: {
                 'default': 'Vänligen mata in ett giltigt Base64-kodat värde'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Vänligen mata in ett värde mellan %s och %s',
                 notInclusive: 'Vänligen mata in ett värde strikt mellan %s och %s'
+            },
+            bic: {
+                'default': 'Vänligen mata in ett giltigt BIC-nummer'
             },
             callback: {
                 'default': 'Vänligen mata in ett giltigt värde'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Vänligen mata in ett giltigt hexadecimalt tal'
             },
-            hexColor: {
-                'default': 'Vänligen mata in en giltig hexadecimal färg'
-            },
             iban: {
                 'default': 'Vänligen mata in ett giltigt IBAN-nummer',
-                countryNotSupported: 'Landskoden %s stöds inte',
                 country: 'Vänligen mata in ett giltigt IBAN-nummer i %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Vänligen mata in ett giltigt identifikationsnummer',
-                countryNotSupported: 'Landskoden %s stöds inte',
                 country: 'Vänligen mata in ett giltigt identifikationsnummer i %s',
                 countries: {
                     BA: 'Bosnien och Hercegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Makedonien',
                     NL: 'Nederländerna',
+                    PL: 'Polen',
                     RO: 'Rumänien',
                     RS: 'Serbien',
                     SE: 'Sverige',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Vänligen mata in ett giltigt telefonnummer',
-                countryNotSupported: 'Landskoden %s stöds inte',
                 country: 'Vänligen mata in ett giltigt telefonnummer i %s',
                 countries: {
                     AE: 'Förenade Arabemiraten',
+                    BG: 'Bulgarien',
                     BR: 'Brasilien',
                     CN: 'Kina',
                     CZ: 'Tjeckien',
@@ -249,7 +248,9 @@
                     ES: 'Spanien',
                     FR: 'Frankrike',
                     GB: 'Storbritannien',
+                    IN: 'Indien',
                     MA: 'Marocko',
+                    NL: 'Holland',
                     PK: 'Pakistan',
                     RO: 'Rumänien',
                     RU: 'Ryssland',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Vänligen mata in ett giltigt momsregistreringsnummer',
-                countryNotSupported: 'Landskoden %s stöds inte',
                 country: 'Vänligen mata in ett giltigt momsregistreringsnummer i %s',
                 countries: {
                     AT: 'Österrike',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Vänligen mata in ett giltigt postnummer',
-                countryNotSupported: 'Landskoden %s stöds inte',
                 country: 'Vänligen mata in ett giltigt postnummer i %s',
                 countries: {
                     AT: 'Österrike',
+                    BG: 'Bulgarien',
                     BR: 'Brasilien',
                     CA: 'Kanada',
                     CH: 'Schweiz',
                     CZ: 'Tjeckien',
                     DE: 'Tyskland',
                     DK: 'Danmark',
+                    ES: 'Spanien',
                     FR: 'Frankrike',
                     GB: 'Förenade Kungariket',
                     IE: 'Irland',
+                    IN: 'Indien',
                     IT: 'Italien',
                     MA: 'Marocko',
                     NL: 'Nederländerna',
+                    PL: 'Polen',
                     PT: 'Portugal',
                     RO: 'Rumänien',
                     RU: 'Ryssland',

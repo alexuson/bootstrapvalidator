@@ -3,7 +3,7 @@
      * Japanese language package
      * Translated by @tsuyoshifujii
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'ja_JP': {
             base64: {
                 'default': '有効なBase64エンコードを入力してください'
@@ -11,6 +11,9 @@
             between: {
                 'default': '%sから%sの間で入力してください',
                 notInclusive: '厳密に%sから%sの間で入力してください'
+            },
+            bic: {
+                'default': '有効なBICコードを入力してください'
             },
             callback: {
                 'default': '有効な値を入力してください'
@@ -67,12 +70,8 @@
             hex: {
                 'default': '有効な16進数を入力してください。'
             },
-            hexColor: {
-                'default': '有効なカラーコード(RGB 16進数)を入力してください'
-            },
             iban: {
                 'default': '有効なIBANコードを入力してください',
-                countryNotSupported: 'カントリーコード%sはサポートされていません',
                 country: '有効な%sのIBANコードを入力してください',
                 countries: {
                     AD: 'アンドラ',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': '有効なIDを入力してください',
-                countryNotSupported: 'カントリーコード%sはサポートされていません',
                 country: '有効な%sのIDを入力してください',
                 countries: {
                     BA: 'スニア·ヘルツェゴビナ',
@@ -180,6 +178,7 @@
                     ME: 'モンテネグロ',
                     MK: 'マケドニア',
                     NL: 'オランダ',
+                    PL: 'ポーランド',
                     RO: 'ルーマニア',
                     RS: 'セルビア',
                     SE: 'スウェーデン',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': '有効な電話番号を入力してください',
-                countryNotSupported: 'カントリーコード%sはサポートされていません',
                 country: '有効な%sの電話番号を入力してください',
                 countries: {
                     AE: 'アラブ首長国連邦',
+                    BG: 'ブルガリア',
                     BR: 'ブラジル',
                     CN: 'チャイナ',
                     CZ: 'チェコ共和国',
@@ -249,7 +248,9 @@
                     ES: 'スペイン',
                     FR: 'フランス',
                     GB: 'イギリス',
+                    IN: 'インド',
                     MA: 'モロッコ',
+                    NL: 'オランダ',
                     PK: 'パキスタン',
                     RO: 'ルーマニア',
                     RU: 'ロシア',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': '有効なVAT番号を入力してください',
-                countryNotSupported: 'カントリーコード%sはサポートされていません',
                 country: '有効な%sのVAT番号を入力してください',
                 countries: {
                     AT: 'オーストリア',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': '有効な郵便番号を入力してください',
-                countryNotSupported: 'カントリーコード%sはサポートされていません',
                 country: '有効な%sの郵便番号を入力してください',
                 countries: {
                     AT: 'オーストリア',
+                    BG: 'ブルガリア',
                     BR: 'ブラジル',
                     CA: 'カナダ',
                     CH: 'スイス',
                     CZ: 'チェコ共和国',
                     DE: 'ドイツ',
                     DK: 'デンマーク',
+                    ES: 'スペイン',
                     FR: 'フランス',
                     GB: 'イギリス',
                     IE: 'アイルランド',
+                    IN: 'インド',
                     IT: 'イタリア',
                     MA: 'モロッコ',
                     NL: 'オランダ',
+                    PL: 'ポーランド',
                     PT: 'ポルトガル',
                     RO: 'ルーマニア',
                     RU: 'ロシア',

@@ -3,7 +3,7 @@
      * Norwegian language package
      * Translated by @trondulseth
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'no_NO': {
             base64: {
                 'default': 'Vennligst fyll ut dette feltet med en gyldig base64-kodet verdi'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Vennligst fyll ut dette feltet med en verdi mellom %s og %s',
                 notInclusive: 'Vennligst tast inn kun en verdi mellom %s og %s'
+            },
+            bic: {
+                'default': 'Vennligst fyll ut dette feltet med et gyldig BIC-nummer'
             },
             callback: {
                 'default': 'Vennligst fyll ut dette feltet med en gyldig verdi'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig hexadecimalt nummer'
             },
-            hexColor: {
-                'default': 'Vennligst fyll ut dette feltet med en gyldig hexfarge'
-            },
             iban: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig IBAN-nummer',
-                countryNotSupported: 'Landskoden %s støttes desverre ikke',
                 country: 'Vennligst fyll ut dette feltet med et gyldig IBAN-nummer i %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig identifikasjons-nummer',
-                countryNotSupported: 'Landskoden %s støttes desverre ikke',
                 country: 'Vennligst fyll ut dette feltet med et gyldig identifikasjons-nummer i %s',
                 countries: {
                     BA: 'Bosnien-Hercegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Makedonia',
                     NL: 'Nederland',
+                    PL: 'Polen',
                     RO: 'Romania',
                     RS: 'Serbia',
                     SE: 'Sverige',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig telefonnummer',
-                countryNotSupported: 'Landskoden %s støttes desverre ikke',
                 country: 'Vennligst fyll ut dette feltet med et gyldig telefonnummer i %s',
                 countries: {
                     AE: 'De Forente Arabiske Emirater',
+                    BG: 'Bulgaria',
                     BR: 'Brasil',
                     CN: 'Kina',
                     CZ: 'Tsjekkia',
@@ -249,7 +248,9 @@
                     ES: 'Spania',
                     FR: 'Frankrike',
                     GB: 'Storbritannia',
+                    IN: 'India',
                     MA: 'Marokko',
+                    NL: 'Nederland',
                     PK: 'Pakistan',
                     RO: 'Rumenia',
                     RU: 'Russland',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig MVA nummer',
-                countryNotSupported: 'Landskoden %s støttes desverre ikke',
                 country: 'Vennligst fyll ut dette feltet med et gyldig MVA nummer i %s',
                 countries: {
                     AT: 'Østerrike',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Vennligst fyll ut dette feltet med et gyldig postnummer',
-                countryNotSupported: 'Landskoden %s støttes desverre ikke',
                 country: 'Vennligst fyll ut dette feltet med et gyldig postnummer i %s',
                 countries: {
                     AT: 'Østerrike',
+                    BG: 'Bulgaria',
                     BR: 'Brasil',
                     CA: 'Canada',
                     CH: 'Schweiz',
                     CZ: 'Tsjekkia',
                     DE: 'Tyskland',
                     DK: 'Danmark',
+                    ES: 'Spania',
                     FR: 'Frankrike',
                     GB: 'Storbritannia',
                     IE: 'Irland',
+                    IN: 'India',
                     IT: 'Italia',
                     MA: 'Marokko',
                     NL: 'Nederland',
+                    PL: 'Polen',
                     PT: 'Portugal',
                     RO: 'Romania',
                     RU: 'Russland',

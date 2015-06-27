@@ -3,7 +3,7 @@
      * Danish language package
      * Translated by @Djarnis
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'da_DK': {
             base64: {
                 'default': 'Udfyld venligst dette felt med en gyldig base64-kodet værdi'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Udfyld venligst dette felt med en værdi mellem %s og %s',
                 notInclusive: 'Indtast venligst kun en værdi mellem %s og %s'
+            },
+            bic: {
+                'default': 'Udfyld venligst dette felt med et gyldigt BIC-nummer'
             },
             callback: {
                 'default': 'Udfyld venligst dette felt med en gyldig værdi'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Udfyld venligst dette felt med et gyldigt hexadecimal-nummer'
             },
-            hexColor: {
-                'default': 'Udfyld venligst dette felt med en gyldig hex-farve'
-            },
             iban: {
                 'default': 'Udfyld venligst dette felt med et gyldigt IBAN-nummer',
-                countryNotSupported: 'Landekoden %s understøttes desværre ikke',
                 country: 'Udfyld venligst dette felt med et gyldigt IBAN-nummer i %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Udfyld venligst dette felt med et gyldigt identifikations-nummer',
-                countryNotSupported: 'Landekoden %s understøttes desværre ikke',
                 country: 'Udfyld venligst dette felt med et gyldigt identifikations-nummer i %s',
                 countries: {
                     BA: 'Bosnien-Hercegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Makedonien',
                     NL: 'Holland',
+                    PL: 'Polen',
                     RO: 'Rumænien',
                     RS: 'Serbien',
                     SE: 'Sverige',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Udfyld venligst dette felt med et gyldigt telefonnummer',
-                countryNotSupported: 'Landekoden %s understøttes desværre ikke',
                 country: 'Udfyld venligst dette felt med et gyldigt telefonnummer i %s',
                 countries: {
                     AE: 'De Forenede Arabiske Emirater',
+                    BG: 'Bulgarien',
                     BR: 'Brasilien',
                     CN: 'Kina',
                     CZ: 'Tjekkiet',
@@ -249,7 +248,9 @@
                     ES: 'Spanien',
                     FR: 'Frankrig',
                     GB: 'Storbritannien',
+                    IN: 'Indien',
                     MA: 'Marokko',
+                    NL: 'Holland',
                     PK: 'Pakistan',
                     RO: 'Rumænien',
                     RU: 'Rusland',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Udfyld venligst dette felt med et gyldig moms-nummer',
-                countryNotSupported: 'Landekoden %s understøttes desværre ikke',
                 country: 'Udfyld venligst dette felt med et gyldigt moms-nummer i %s',
                 countries: {
                     AT: 'Østrig',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Udfyld venligst dette felt med et gyldigt postnummer',
-                countryNotSupported: 'Landekoden %s understøttes desværre ikke',
                 country: 'Udfyld venligst dette felt med et gyldigt postnummer i %s',
                 countries: {
                     AT: 'Østrig',
+                    BG: 'Bulgarien',
                     BR: 'Brasilien',
                     CA: 'Canada',
                     CH: 'Schweiz',
                     CZ: 'Tjekkiet',
                     DE: 'Tyskland',
                     DK: 'Danmark',
+                    ES: 'Spanien',
                     FR: 'Frankrig',
                     GB: 'Storbritannien',
                     IE: 'Irland',
+                    IN: 'Indien',
                     IT: 'Italien',
                     MA: 'Marokko',
                     NL: 'Holland',
+                    PL: 'Polen',
                     PT: 'Portugal',
                     RO: 'Rumænien',
                     RU: 'Rusland',

@@ -1,5 +1,13 @@
+/**
+ * color validator
+ *
+ * @link        http://formvalidation.io/validators/color/
+ * @author      https://twitter.com/nghuuphuoc
+ * @copyright   (c) 2013 - 2015 Nguyen Huu Phuoc
+ * @license     http://formvalidation.io/license/
+ */
 (function($) {
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n || {}, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {
         'en_US': {
             color: {
                 'default': 'Please enter a valid color'
@@ -7,10 +15,14 @@
         }
     });
 
-    $.fn.bootstrapValidator.validators.color = {
+    FormValidation.Validator.color = {
         html5Attributes: {
             message: 'message',
             type: 'type'
+        },
+
+        enableByHtml5: function($field) {
+            return ('color' === $field.attr('type'));
         },
 
         SUPPORTED_TYPES: [
@@ -73,7 +85,7 @@
         /**
          * Return true if the input value is a valid color
          *
-         * @param {BootstrapValidator} validator The validator plugin instance
+         * @param {FormValidation.Base} validator The validator plugin instance
          * @param {jQuery} $field Field element
          * @param {Object} options Can consist of the following keys:
          * - message: The invalid message
@@ -81,9 +93,15 @@
          * @returns {Boolean}
          */
         validate: function(validator, $field, options) {
-            var value = $field.val();
+            var value = validator.getFieldValue($field, 'color');
             if (value === '') {
                 return true;
+            }
+
+            // Only accept 6 hex character values due to the HTML 5 spec
+            // See http://www.w3.org/TR/html-markup/input.color.html#input.color.attrs.value
+            if (this.enableByHtml5($field)) {
+                return /^#[0-9A-F]{6}$/i.test(value);
             }
 
             var types = options.type || this.SUPPORTED_TYPES;

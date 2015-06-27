@@ -3,7 +3,7 @@
      * Polish language package
      * Translated by @grzesiek
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'pl_PL': {
             base64: {
                 'default': 'Wpisz poprawny ciąg znaków zakodowany w base 64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Wprowadź wartość pomiędzy %s i %s',
                 notInclusive: 'Wprowadź wartość pomiędzy %s i %s (zbiór otwarty)'
+            },
+            bic: {
+                'default': 'Wprowadź poprawny numer BIC'
             },
             callback: {
                 'default': 'Wprowadź poprawną wartość'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Wprowadź poprawną liczbę w formacie heksadecymalnym'
             },
-            hexColor: {
-                'default': 'Wprowadź poprawny kolor w formacie hex'
-            },
             iban: {
                 'default': 'Wprowadź poprawny numer IBAN',
-                countryNotSupported: 'Kod kraju %s nie jest obsługiwany',
                 country: 'Wprowadź poprawny numer IBAN w kraju %s',
                 countries: {
                     AD: 'Andora',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Wprowadź poprawny numer identyfikacyjny',
-                countryNotSupported: 'Kod kraju %s nie jest obsługiwany',
                 country: 'Wprowadź poprawny numer identyfikacyjny w kraju %s',
                 countries: {
                     BA: 'Bośnia i Hercegowina',
@@ -180,6 +178,7 @@
                     ME: 'Czarnogóra',
                     MK: 'Macedonia',
                     NL: 'Holandia',
+                    PL: 'Polska',
                     RO: 'Rumunia',
                     RS: 'Serbia',
                     SE: 'Szwecja',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Wprowadź poprawny numer telefonu',
-                countryNotSupported: 'Kod kraju %s nie jest wspierany',
                 country: 'Wprowadź poprawny numer telefonu w kraju %s',
                 countries: {
                     AE: 'Zjednoczone Emiraty Arabskie',
+                    BG: 'Bułgaria',
                     BR: 'Brazylia',
                     CN: 'Chiny',
                     CZ: 'Czechy',
@@ -249,7 +248,9 @@
                     ES: 'Hiszpania',
                     FR: 'Francja',
                     GB: 'Wielka Brytania',
+                    IN: 'Indie',
                     MA: 'Maroko',
+                    NL: 'Holandia',
                     PK: 'Pakistan',
                     RO: 'Rumunia',
                     RU: 'Rosja',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Wprowadź poprawny numer VAT',
-                countryNotSupported: 'Kod kraju %s nie jest wsperany',
                 country: 'Wprowadź poprawny numer VAT w kraju %s',
                 countries: {
                     AT: 'Austria',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Wprowadź poprawny kod pocztowy',
-                countryNotSupported: 'Kod kraju %s nie jest obsługiwany',
                 country: 'Wprowadź poprawny kod pocztowy w kraju %s',
                 countries: {
                     AT: 'Austria',
+                    BG: 'Bułgaria',
                     BR: 'Brazylia',
                     CA: 'Kanada',
                     CH: 'Szwajcaria',
                     CZ: 'Czechy',
                     DE: 'Niemcy',
                     DK: 'Dania',
+                    ES: 'Hiszpania',
                     FR: 'Francja',
                     GB: 'Wielka Brytania',
                     IE: 'Irlandia',
+                    IN: 'Indie',
                     IT: 'Włochy',
                     MA: 'Maroko',
                     NL: 'Holandia',
+                    PL: 'Polska',
                     PT: 'Portugalia',
                     RO: 'Rumunia',
                     RU: 'Rosja',

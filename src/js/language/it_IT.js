@@ -3,7 +3,7 @@
      * Italian language package
      * Translated by @maramazza
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'it_IT': {
             base64: {
                 'default': 'Si prega di inserire un valore codificato in Base 64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Si prega di inserire un valore tra %s e %s',
                 notInclusive: 'Si prega di scegliere rigorosamente un valore tra %s e %s'
+            },
+            bic: {
+                'default': 'Si prega di inserire un numero BIC valido'
             },
             callback: {
                 'default': 'Si prega di inserire un valore valido'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Si prega di inserire un numero esadecimale valido'
             },
-            hexColor: {
-                'default': 'Si prega di inserire un hex colore valido'
-            },
             iban: {
                 'default': 'Si prega di inserire un numero IBAN valido',
-                countryNotSupported: 'Il codice del paese %s non e supportato',
                 country: 'Si prega di inserire un numero IBAN valido per %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Si prega di inserire un numero di identificazione valido',
-                countryNotSupported: 'Il codice nazione %s non e supportato',
                 country: 'Si prega di inserire un numero di identificazione valido per %s',
                 countries: {
                     BA: 'Bosnia-Erzegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Macedonia',
                     NL: 'Paesi Bassi',
+                    PL: 'Polonia',
                     RO: 'Romania',
                     RS: 'Serbia',
                     SE: 'Svezia',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Si prega di inserire un numero di telefono valido',
-                countryNotSupported: 'Il codice nazione %s non e supportato',
                 country: 'Si prega di inserire un numero di telefono valido per %s',
                 countries: {
                     AE: 'Emirati Arabi Uniti',
+                    BG: 'Bulgaria',
                     BR: 'Brasile',
                     CN: 'Cina',
                     CZ: 'Republica Ceca',
@@ -249,7 +248,9 @@
                     ES: 'Spagna',
                     FR: 'Francia',
                     GB: 'Regno Unito',
+                    IN: 'India',
                     MA: 'Marocco',
+                    NL: 'Olanda',
                     PK: 'Pakistan',
                     RO: 'Romania',
                     RU: 'Russia',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Si prega di inserire un valore di IVA valido',
-                countryNotSupported: 'Il codice nazione %s non e supportato',
                 country: 'Si prega di inserire un valore di IVA valido per %s',
                 countries: {
                     AT: 'Austria',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Si prega di inserire un codice postale valido',
-                countryNotSupported: 'Il codice nazione %s non e supportato',
                 country: 'Si prega di inserire un codice postale valido per %s',
                 countries: {
                     AT: 'Austria',
+                    BG: 'Bulgaria',
                     BR: 'Brasile',
                     CA: 'Canada',
                     CH: 'Svizzera',
                     CZ: 'Republica Ceca',
                     DE: 'Germania',
                     DK: 'Danimarca',
+                    ES: 'Spagna',
                     FR: 'Francia',
                     GB: 'Regno Unito',
                     IE: 'Irlanda',
+                    IN: 'India',
                     IT: 'Italia',
                     MA: 'Marocco',
                     NL: 'Paesi Bassi',
+                    PL: 'Polonia',
                     PT: 'Portogallo',
                     RO: 'Romania',
                     RU: 'Russia',

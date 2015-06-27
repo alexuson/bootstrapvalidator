@@ -3,7 +3,7 @@
      * Chilean Spanish language package
      * Translated by @marceloampuerop6
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'es_CL': {
             base64: {
                 'default': 'Por favor ingrese un valor válido en base 64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Por favor ingrese un valor entre %s y %s',
                 notInclusive: 'Por favor ingrese un valor sólo entre %s and %s'
+            },
+            bic: {
+                'default': 'Por favor ingrese un número BIC válido'
             },
             callback: {
                 'default': 'Por favor ingrese un valor válido'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Por favor ingrese un valor hexadecimal válido'
             },
-            hexColor: {
-                'default': 'Por favor ingrese un color hexadecimal válido'
-            },
             iban: {
                 'default': 'Por favor ingrese un número IBAN válido',
-                countryNotSupported: 'El código del país %s no está soportado',
                 country: 'Por favor ingrese un número IBAN válido en %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Por favor ingrese un número de identificación válido',
-                countryNotSupported: 'El código del país %s no esta soportado',
                 country: 'Por favor ingrese un número de identificación válido en %s',
                 countries: {
                     BA: 'Bosnia Herzegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Macedonia',
                     NL: 'Países Bajos',
+                    PL: 'Poland',
                     RO: 'Romania',
                     RS: 'Serbia',
                     SE: 'Suecia',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Por favor ingrese un número válido de teléfono',
-                countryNotSupported: 'El código del país %s no está soportado',
                 country: 'Por favor ingrese un número válido de teléfono en %s',
                 countries: {
                     AE: 'Emiratos Árabes Unidos',
+                    BG: 'Bulgaria',
                     BR: 'Brasil',
                     CN: 'China',
                     CZ: 'República Checa',
@@ -249,7 +248,9 @@
                     ES: 'España',
                     FR: 'Francia',
                     GB: 'Reino Unido',
+                    IN: 'India',
                     MA: 'Marruecos',
+                    NL: 'Países Bajos',
                     PK: 'Pakistán',
                     RO: 'Rumania',
                     RU: 'Rusa',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Por favor ingrese un número VAT válido',
-                countryNotSupported: 'El código del país %s no está soportado',
                 country: 'Por favor ingrese un número VAT válido en %s',
                 countries: {
                     AT: 'Austria',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Por favor ingrese un código postal válido',
-                countryNotSupported: 'El código del país %s no está soportado',
                 country: 'Por favor ingrese un código postal válido en %s',
                 countries: {
                     AT: 'Austria',
+                    BG: 'Bulgaria',
                     BR: 'Brasil',
                     CA: 'Canadá',
                     CH: 'Suiza',
                     CZ: 'República Checa',
                     DE: 'Alemania',
                     DK: 'Dinamarca',
+                    ES: 'España',
                     FR: 'Francia',
                     GB: 'Reino Unido',
                     IE: 'Irlanda',
+                    IN: 'India',
                     IT: 'Italia',
                     MA: 'Marruecos',
                     NL: 'Países Bajos',
+                    PL: 'Poland',
                     PT: 'Portugal',
                     RO: 'Rumanía',
                     RU: 'Rusia',

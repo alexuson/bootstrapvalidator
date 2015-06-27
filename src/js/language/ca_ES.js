@@ -3,7 +3,7 @@
      * Catalan language package
      * Translated by @ArnauAregall
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'ca_ES': {
             base64: {
                 'default': 'Si us plau introdueix un valor vàlid en base 64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Si us plau introdueix un valor entre %s i %s',
                 notInclusive: 'Si us plau introdueix un valor comprès entre %s i %s'
+            },
+            bic: {
+                'default': 'Si us plau introdueix un nombre BIC vàlid'
             },
             callback: {
                 'default': 'Si us plau introdueix un valor vàlid'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Si us plau introdueix un valor hexadecimal vàlid'
             },
-            hexColor: {
-                'default': 'Si us plau introdueix un color hexadecimal vàlid'
-            },
             iban: {
                 'default': 'Si us plau introdueix un nombre IBAN vàlid',
-                countryNotSupported: 'El codi del país %s no està suportat',
                 country: 'Si us plau introdueix un nombre IBAN vàlid a %s',
                 countries: {
                     AD: 'Andorra',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Si us plau introdueix un nombre d\'identificació vàlid',
-                countryNotSupported: 'El codi de país no està suportat',
                 country: 'Si us plau introdueix un nombre d\'identificació vàlid a %s',
                 countries: {
                     BA: 'Bòsnia i Hercegovina',
@@ -180,6 +178,7 @@
                     ME: 'Montenegro',
                     MK: 'Macedònia',
                     NL: 'Països Baixos',
+                    PL: 'Polònia',
                     RO: 'Romania',
                     RS: 'Sèrbia',
                     SE: 'Suècia',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Si us plau introdueix un telèfon vàlid',
-                countryNotSupported: 'El codi de país %s no està suportat',
                 country: 'Si us plau introdueix un telèfon vàlid a %s',
                 countries: {
                     AE: 'Emirats Àrabs Units',
+                    BG: 'Bulgària',
                     BR: 'Brasil',
                     CN: 'Xina',
                     CZ: 'República Checa',
@@ -249,7 +248,9 @@
                     ES: 'Espanya',
                     FR: 'França',
                     GB: 'Regne Unit',
+                    IN: 'Índia',
                     MA: 'Marroc',
+                    NL: 'Països Baixos',
                     PK: 'Pakistan',
                     RO: 'Romania',
                     RU: 'Rússia',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Si us plau introdueix una quantitat d\'IVA vàlida',
-                countryNotSupported: 'El codi del país %s no està suportat',
                 country: 'Si us plau introdueix una quantitat d\' IVA vàlida a %s',
                 countries: {
                     AT: 'Àustria',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Si us plau introdueix un codi postal vàlid',
-                countryNotSupported: 'El codi del país %s no està suportat',
                 country: 'Si us plau introdueix un codi postal vàlid a %s',
                 countries: {
                     AT: 'Àustria',
+                    BG: 'Bulgària',
                     BR: 'Brasil',
                     CA: 'Canadà',
                     CH: 'Suïssa',
                     CZ: 'República Checa',
                     DE: 'Alemanya',
                     DK: 'Dinamarca',
+                    ES: 'Espanya',
                     FR: 'França',
                     GB: 'Rege Unit',
                     IE: 'Irlanda',
+                    IN: 'Índia',
                     IT: 'Itàlia',
                     MA: 'Marroc',
                     NL: 'Països Baixos',
+                    PL: 'Polònia',
                     PT: 'Portugal',
                     RO: 'Romania',
                     RU: 'Rússia',

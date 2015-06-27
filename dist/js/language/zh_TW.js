@@ -3,7 +3,7 @@
      * Traditional Chinese language package
      * Translated by @tureki
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'zh_TW': {
             base64: {
                 'default': '請輸入有效的Base64編碼'
@@ -11,6 +11,9 @@
             between: {
                 'default': '請輸入不小於 %s 且不大於 %s 的值',
                 notInclusive: '請輸入不小於等於 %s 且不大於等於 %s 的值'
+            },
+            bic: {
+                'default': '請輸入有效的BIC商品編碼'
             },
             callback: {
                 'default': '請輸入有效的值'
@@ -67,12 +70,8 @@
             hex: {
                 'default': '請輸入有效的16位元碼'
             },
-            hexColor: {
-                'default': '請輸入有效的16位元色碼'
-            },
             iban: {
                 'default': '請輸入有效的IBAN(國際銀行賬戶)號碼',
-                countryNotSupported: '不支援 %s 國家',
                 country: '請輸入有效的 %s 國家的IBAN(國際銀行賬戶)號碼',
                 countries: {
                     AD: '安道​​爾',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': '請輸入有效的身份證字號',
-                countryNotSupported: '不支援 %s 國家',
                 country: '請輸入有效的 %s 身份證字號',
                 countries: {
                     BA: '波赫',
@@ -180,6 +178,7 @@
                     ME: '蒙特內哥羅',
                     MK: '馬其頓',
                     NL: '荷蘭',
+                    PL: '波蘭',
                     RO: '羅馬尼亞',
                     RS: '塞爾維亞',
                     SE: '瑞典',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': '請輸入有效的電話號碼',
-                countryNotSupported: '不支援 %s 國家',
                 country: '請輸入有效的 %s 國家的電話號碼',
                 countries: {
                     AE: '阿聯酋',
+                    BG: '保加利亞',
                     BR: '巴西',
                     CN: '中国',
                     CZ: '捷克共和國',
@@ -249,7 +248,9 @@
                     ES: '西班牙',
                     FR: '法國',
                     GB: '英國',
+                    IN: '印度',
                     MA: '摩洛哥',
+                    NL: '荷蘭',
                     PK: '巴基斯坦',
                     RO: '罗马尼亚',
                     RU: '俄羅斯',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': '請輸入有效的VAT(增值税)',
-                countryNotSupported: '不支援 %s 國家',
                 country: '請輸入有效的 %s 國家的VAT(增值税)',
                 countries: {
                     AT: '奧地利',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': '請輸入有效的郵政編碼',
-                countryNotSupported: '不支援 %s 國家',
                 country: '請輸入有效的 %s 國家的郵政編碼',
                 countries: {
                     AT: '奧地利',
+                    BG: '保加利亞',
                     BR: '巴西',
                     CA: '加拿大',
                     CH: '瑞士',
                     CZ: '捷克共和國',
                     DE: '德國',
                     DK: '丹麥',
+                    ES: '西班牙',
                     FR: '法國',
                     GB: '英國',
                     IE: '愛爾蘭',
+                    IN: '印度',
                     IT: '意大利',
                     MA: '摩洛哥',
                     NL: '荷蘭',
+                    PL: '波蘭',
                     PT: '葡萄牙',
                     RO: '羅馬尼亞',
                     RU: '俄羅斯',

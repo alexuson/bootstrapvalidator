@@ -3,7 +3,7 @@
      * Hebrew language package
      * Translated by @yakidahan
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'he_IL': {
             base64: {
                 'default': 'נא להזין ערך המקודד בבסיס 64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'נא להזין ערך בין %s ל-%s',
                 notInclusive: 'נא להזין ערך בין %s ל-%s בדיוק'
+            },
+            bic: {
+                'default': 'נא להזין מספר BIC תקין'
             },
             callback: {
                 'default': 'נא להזין ערך תקין'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'נא להזין מספר הקסדצימלי תקין'
             },
-            hexColor: {
-                'default': 'נא להזין קוד צבע הקסדצימלי תקין'
-            },
             iban: {
                 'default': 'נא להזין מספר IBAN תקין',
-                countryNotSupported: 'קוד המדינה של %s אינו נתמך',
                 country: 'נא להזין מספר IBAN תקני ב%s',
                 countries: {
                     AD: 'אנדורה',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'נא להזין מספר זהות תקין',
-                countryNotSupported: 'קוד המדינה של %s אינו נתמך',
                 country: 'נא להזין מספר זהות תקני ב%s',
                 countries: {
                     BA: 'בוסניה והרצגובינה',
@@ -180,6 +178,7 @@
                     ME: 'מונטנגרו',
                     MK: 'מקדוניה',
                     NL: 'הולנד',
+                    PL: 'פולין',
                     RO: 'רומניה',
                     RS: 'סרביה',
                     SE: 'שוודיה',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'נא להין מספר טלפון תקין',
-                countryNotSupported: 'קוד המדינה של %s אינו נתמך',
                 country: 'נא להזין מספר טלפון תקין ב%s',
                 countries: {
                     AE: 'איחוד האמירויות הערבי',
+                    BG: 'בולגריה',
                     BR: 'ברזיל',
                     CN: 'סין',
                     CZ: 'צכיה',
@@ -249,7 +248,9 @@
                     ES: 'ספרד',
                     FR: 'צרפת',
                     GB: 'בריטניה',
+                    IN: 'הודו',
                     MA: 'מרוקו',
+                    NL: 'הולנד',
                     PK: 'פקיסטן',
                     RO: 'רומניה',
                     RU: 'רוסיה',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'נא להזין מספר VAT תקין',
-                countryNotSupported: 'קוד המדינה של %s אינו נתמך',
                 country: 'נא להזין מספר VAT תקין ב%s',
                 countries: {
                     AT: 'אוסטריה',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'נא להזין מיקוד תקין',
-                countryNotSupported: 'קוד המדינה של %s אינו נתמך',
                 country: 'נא להזין מיקוד תקין ב%s',
                 countries: {
                     AT: 'אוסטריה',
+                    BG: 'בולגריה',
                     BR: 'ברזיל',
                     CA: 'קנדה',
                     CH: 'שווייץ',
                     CZ: 'צכיה',
                     DE: 'גרמניה',
                     DK: 'דנמרק',
+                    ES: 'ספרד',
                     FR: 'צרפת',
                     GB: 'בריטניה',
                     IE: 'אירלנד',
+                    IN: 'הודו',
                     IT: 'איטליה',
                     MA: 'מרוקו',
                     NL: 'הולנד',
+                    PL: 'פולין',
                     PT: 'פורטוגל',
                     RO: 'רומניה',
                     RU: 'רוסיה',

@@ -1,39 +1,43 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-        // ---
+        // ~~~~~~~~~
         // Variables
-        // ---
+        // ~~~~~~~~~
 
         pkg: grunt.file.readJSON('package.json'),
 
         dirs: {
             src: 'src',
             dist: 'dist',
-            test: 'test'
+            test: 'test',
+            vendor: 'vendor'
         },
+
+        // The host that servers the demo and test directories
+        host: 'http://fv.dev',
 
         banner: [
             '/*!',
-            ' * BootstrapValidator (<%= pkg.homepage %>)',
+            ' * FormValidation (<%= pkg.homepage %>)',
             ' * <%= pkg.description %>',
             ' *',
             ' * @version     v<%= pkg.version %>, built on <%= grunt.template.today("yyyy-mm-dd h:MM:ss TT") %>',
             ' * @author      <%= pkg.author.url %>',
-            ' * @copyright   (c) 2013 - <%= grunt.template.today("yyyy") %> Nguyen Huu Phuoc',
-            ' * @license     Commercial: <%= pkg.homepage %>/license/',
-            ' *              Non-commercial: http://creativecommons.org/licenses/by-nc-nd/3.0/',
+            ' * @copyright   (c) 2013 - 2015 Nguyen Huu Phuoc',
+            ' * @license     <%= pkg.homepage %>/license/',
             ' */\n'
         ].join('\n'),
 
-        // ---
+        // ~~~~
         // Tasks
-        // ---
+        // ~~~~
 
         copy: {
             main: {
                 files: [
                     { cwd: '<%= dirs.src %>/css', src: '**', dest: '<%= dirs.dist %>/css', expand: true, flatten: true, filter: 'isFile' },
-                    { cwd: '<%= dirs.src %>/js/language', src: '**', dest: '<%= dirs.dist %>/js/language', expand: true, flatten: true, filter: 'isFile' }
+                    { cwd: '<%= dirs.src %>/js/language', src: '**', dest: '<%= dirs.dist %>/js/language', expand: true, flatten: true, filter: 'isFile' },
+                    { cwd: '<%= dirs.src %>/js/framework', src: '**', dest: '<%= dirs.dist %>/js/framework', expand: true, flatten: true, filter: 'isFile' }
                 ]
             }
         },
@@ -46,20 +50,65 @@ module.exports = function(grunt) {
                     banner: '<%= banner %>'
                 },
                 files: {
-                    '<%= dirs.dist %>/css/bootstrapValidator.min.css': ['<%= dirs.src %>/css/bootstrapValidator.css']
+                    '<%= dirs.dist %>/css/formValidation.min.css': ['<%= dirs.src %>/css/formValidation.css']
                 }
             }
         },
 
         concat: {
-            source: {
+            base: {
                 options: {
                     separator: ';',
                     stripBanners: true,
                     banner: '<%= banner %>'
                 },
-                src: ['<%= dirs.src %>/js/bootstrapValidator.js', '<%= dirs.src %>/js/validator/*.js'],
-                dest: '<%= dirs.dist %>/js/bootstrapValidator.js'
+                src: ['<%= dirs.src %>/js/base.js', '<%= dirs.src %>/js/helper.js', '<%= dirs.src %>/js/validator/*.js'],
+                dest: '<%= dirs.dist %>/js/formValidation.js'
+            },
+            bootstrap: {
+                options: {
+                    separator: ';',
+                    stripBanners: true,
+                    banner: '<%= banner %>'
+                },
+                src: ['<%= dirs.src %>/js/framework/bootstrap.js'],
+                dest: '<%= dirs.dist %>/js/framework/bootstrap.js'
+            },
+            foundation: {
+                options: {
+                    separator: ';',
+                    stripBanners: true,
+                    banner: '<%= banner %>'
+                },
+                src: ['<%= dirs.src %>/js/framework/foundation.js'],
+                dest: '<%= dirs.dist %>/js/framework/foundation.js'
+            },
+            pure: {
+                options: {
+                    separator: ';',
+                    stripBanners: true,
+                    banner: '<%= banner %>'
+                },
+                src: ['<%= dirs.src %>/js/framework/pure.js'],
+                dest: '<%= dirs.dist %>/js/framework/pure.js'
+            },
+            semantic: {
+                options: {
+                    separator: ';',
+                    stripBanners: true,
+                    banner: '<%= banner %>'
+                },
+                src: ['<%= dirs.src %>/js/framework/semantic.js'],
+                dest: '<%= dirs.dist %>/js/framework/semantic.js'
+            },
+            uikit: {
+                options: {
+                    separator: ';',
+                    stripBanners: true,
+                    banner: '<%= banner %>'
+                },
+                src: ['<%= dirs.src %>/js/framework/uikit.js'],
+                dest: '<%= dirs.dist %>/js/framework/uikit.js'
             },
             test: {
                 src: ['<%= dirs.test %>/spec/*.js', '<%= dirs.test %>/spec/validator/*.js'],
@@ -71,9 +120,42 @@ module.exports = function(grunt) {
             options: {
                 banner: '<%= banner %>'
             },
-            build: {
-                src: ['<%= dirs.dist %>/js/bootstrapValidator.js'],
-                dest: '<%= dirs.dist %>/js/bootstrapValidator.min.js'
+            base: {
+                src: ['<%= dirs.dist %>/js/formValidation.js'],
+                dest: '<%= dirs.dist %>/js/formValidation.min.js'
+            },
+            bootstrap: {
+                src: ['<%= dirs.dist %>/js/framework/bootstrap.js'],
+                dest: '<%= dirs.dist %>/js/framework/bootstrap.min.js'
+            },
+            foundation: {
+                src: ['<%= dirs.dist %>/js/framework/foundation.js'],
+                dest: '<%= dirs.dist %>/js/framework/foundation.min.js'
+            },
+            pure: {
+                src: ['<%= dirs.dist %>/js/framework/pure.js'],
+                dest: '<%= dirs.dist %>/js/framework/pure.min.js'
+            },
+            semantic: {
+                src: ['<%= dirs.dist %>/js/framework/semantic.js'],
+                dest: '<%= dirs.dist %>/js/framework/semantic.min.js'
+            },
+            uikit: {
+                src: ['<%= dirs.dist %>/js/framework/uikit.js'],
+                dest: '<%= dirs.dist %>/js/framework/uikit.min.js'
+            }
+        },
+
+        jasmine: {
+            src: '<%= dirs.dist %>/js/**/*.js',
+            options: {
+                specs: '<%= dirs.test %>/spec/**/*.js',
+                host: '<%= host %>',
+                vendor: [
+                    '<%= dirs.vendor %>/jquery/jquery.min.js',
+                    '<%= dirs.vendor %>/bootstrap/js/bootstrap.min.js'
+                ],
+                helpers: '<%= dirs.test %>/helper.js'
             }
         },
 
@@ -98,7 +180,8 @@ module.exports = function(grunt) {
                 undef: true,
                 white: true,
                 globals: {
-                    jQuery: false
+                    jQuery: false,
+                    FormValidation: false
                 }
             }
         },
@@ -120,10 +203,12 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', 'build');
     grunt.registerTask('build',   ['copy', 'cssmin', 'concat', 'uglify']);
+    grunt.registerTask('test',    ['jshint', 'jasmine']);
 
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-contrib-jasmine');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');

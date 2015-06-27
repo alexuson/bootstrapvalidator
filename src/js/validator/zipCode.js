@@ -1,24 +1,35 @@
+/**
+ * zipCode validator
+ *
+ * @link        http://formvalidation.io/validators/zipCode/
+ * @author      https://twitter.com/nghuuphuoc
+ * @copyright   (c) 2013 - 2015 Nguyen Huu Phuoc
+ * @license     http://formvalidation.io/license/
+ */
 (function($) {
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n || {}, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n || {}, {
         'en_US': {
             zipCode: {
                 'default': 'Please enter a valid postal code',
-                countryNotSupported: 'The country code %s is not supported',
                 country: 'Please enter a valid postal code in %s',
                 countries: {
                     AT: 'Austria',
+                    BG: 'Bulgaria',
                     BR: 'Brazil',
                     CA: 'Canada',
                     CH: 'Switzerland',
                     CZ: 'Czech Republic',
                     DE: 'Germany',
                     DK: 'Denmark',
+                    ES: 'Spain',
                     FR: 'France',
                     GB: 'United Kingdom',
                     IE: 'Ireland',
+                    IN: 'India',
                     IT: 'Italy',
                     MA: 'Morocco',
                     NL: 'Netherlands',
+                    PL: 'Poland',
                     PT: 'Portugal',
                     RO: 'Romania',
                     RU: 'Russia',
@@ -31,18 +42,18 @@
         }
     });
 
-    $.fn.bootstrapValidator.validators.zipCode = {
+    FormValidation.Validator.zipCode = {
         html5Attributes: {
             message: 'message',
             country: 'country'
         },
 
-        COUNTRY_CODES: [ 'AT', 'BR', 'CA', 'CH', 'CZ', 'DE', 'DK', 'FR', 'GB', 'IE', 'IT', 'MA', 'NL', 'PT', 'RO', 'RU', 'SE', 'SG', 'SK', 'US'],
+        COUNTRY_CODES: ['AT', 'BG', 'BR', 'CA', 'CH', 'CZ', 'DE', 'DK', 'ES', 'FR', 'GB', 'IE', 'IN', 'IT', 'MA', 'NL', 'PL', 'PT', 'RO', 'RU', 'SE', 'SG', 'SK', 'US'],
 
         /**
          * Return true if and only if the input value is a valid country zip code
          *
-         * @param {BootstrapValidator} validator The validator plugin instance
+         * @param {FormValidation.Base} validator The validator plugin instance
          * @param {jQuery} $field Field element
          * @param {Object} options Consist of key:
          * - message: The invalid message
@@ -54,16 +65,16 @@
          * - Name of callback function that returns the country code
          * - A callback function that returns the country code
          *
-         * callback: function(value, validator, $field) {
+         *  callback: function(value, validator, $field) {
          *      // value is the value of field
          *      // validator is the BootstrapValidator instance
          *      // $field is jQuery element representing the field
-         * }
+         *  }
          *
          * @returns {Boolean|Object}
          */
         validate: function(validator, $field, options) {
-            var value = $field.val();
+            var value = validator.getFieldValue($field, 'zipCode');
             if (value === '' || !options.country) {
                 return true;
             }
@@ -76,7 +87,7 @@
             }
 
             if (!country || $.inArray(country.toUpperCase(), this.COUNTRY_CODES) === -1) {
-                return { valid: false, message: $.fn.bootstrapValidator.helpers.format($.fn.bootstrapValidator.i18n[locale].zipCode.countryNotSupported, country) };
+                return true;
             }
 
             var isValid = false;
@@ -85,6 +96,10 @@
                 // http://en.wikipedia.org/wiki/List_of_postal_codes_in_Austria
                 case 'AT':
                     isValid = /^([1-9]{1})(\d{3})$/.test(value);
+                    break;
+
+                case 'BG':
+                    isValid = /^([1-9]{1}[0-9]{3})$/.test($.trim(value));
                     break;
 
                 case 'BR':
@@ -113,6 +128,12 @@
                     isValid = /^(DK(-|\s)?)?\d{4}$/i.test(value);
                     break;
 
+                // Zip codes in Spain go from 01XXX to 52XXX.
+                // Test: http://refiddle.com/1ufo
+                case 'ES':
+                    isValid = /^(?:0[1-9]|[1-4][0-9]|5[0-2])\d{3}$/.test(value);
+                    break;
+
                 // http://en.wikipedia.org/wiki/Postal_codes_in_France
                 case 'FR':
                     isValid = /^[0-9]{5}$/i.test(value);
@@ -120,6 +141,13 @@
 
                 case 'GB':
                     isValid = this._gb(value);
+                    break;
+
+                // Indian PIN (Postal Index Number) validation
+                // http://en.wikipedia.org/wiki/Postal_Index_Number
+                // Test: http://regex101.com/r/kV0vH3/1
+                case 'IN':
+                    isValid = /^\d{3}\s?\d{3}$/.test(value);
                     break;
 
                 // http://www.eircode.ie/docs/default-source/Common/prepare-your-business-for-eircode---published-v2.pdf?sfvrsn=2
@@ -141,6 +169,11 @@
                 // http://en.wikipedia.org/wiki/Postal_codes_in_the_Netherlands
                 case 'NL':
                     isValid = /^[1-9][0-9]{3} ?(?!sa|sd|ss)[a-z]{2}$/i.test(value);
+                    break;
+
+                // http://en.wikipedia.org/wiki/List_of_postal_codes_in_Poland
+                case 'PL':
+                    isValid = /^[0-9]{2}\-[0-9]{3}$/.test(value);
                     break;
 
                 // Test: http://refiddle.com/1l2t
@@ -178,7 +211,7 @@
 
             return {
                 valid: isValid,
-                message: $.fn.bootstrapValidator.helpers.format(options.message || $.fn.bootstrapValidator.i18n[locale].zipCode.country, $.fn.bootstrapValidator.i18n[locale].zipCode.countries[country])
+                message: FormValidation.Helper.format(options.message || FormValidation.I18n[locale].zipCode.country, FormValidation.I18n[locale].zipCode.countries[country])
             };
         },
 

@@ -3,7 +3,7 @@
      * Albanian language package
      * Translated by @desaretiuss
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'sq_AL': {
             base64: {
                 'default': 'Ju lutem përdorni sistemin e kodimit Base64'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Ju lutem vendosni një vlerë midis %s dhe %s',
                 notInclusive: 'Ju lutem vendosni një vlerë rreptësisht midis %s dhe %s'
+            },
+            bic: {
+                'default': 'Ju lutem vendosni një numër BIC të vlefshëm'
             },
             callback: {
                 'default': 'Ju lutem vendosni një vlerë të vlefshme'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Ju lutem vendosni një numër të saktë heksadecimal'
             },
-            hexColor: {
-                'default': 'Ju lutem vendosni një ngjyrë të vlefshme heksadecimale'
-            },
             iban: {
                 'default': 'Ju lutem vendosni një numër IBAN të vlefshëm',
-                countryNotSupported: 'Kodi i shtetit %s nuk është i mundësuar',
                 country: 'Ju lutem vendosni një numër IBAN të vlefshëm në %s',
                 countries: {
                     AD: 'Andora',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Ju lutem vendosni një numër identifikimi të vlefshëm ',
-                countryNotSupported: 'Kodi i shtetit %s nuk është i mundësuar',
                 country: 'Ju lutem vendosni një numër identifikimi të vlefshëm në %s',
                 countries: {
                     BA: 'Bosnjë dhe Hercegovinë',
@@ -180,6 +178,7 @@
                     ME: 'Mal i Zi',
                     MK: 'Maqedoni',
                     NL: 'Hollandë',
+                    PL: 'Poloni',
                     RO: 'Rumani',
                     RS: 'Serbi',
                     SE: 'Suedi',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Ju lutem vendosni një numër telefoni të vlefshëm',
-                countryNotSupported: 'Kodi i shtetit %s nuk është i mundësuar',
                 country: 'Ju lutem vendosni një numër telefoni të vlefshëm në %s',
                 countries: {
                     AE: 'Emiratet e Bashkuara Arabe',
+                    BG: 'Bullgari',
                     BR: 'Brazil',
                     CN: 'Kinë',
                     CZ: 'Republika Çeke',
@@ -249,7 +248,9 @@
                     ES: 'Spanjë',
                     FR: 'Francë',
                     GB: 'Mbretëria e Bashkuar',
+                    IN: 'Indi',
                     MA: 'Marok',
+                    NL: 'Hollandë',
                     PK: 'Pakistan',
                     RO: 'Rumani',
                     RU: 'Rusi',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Ju lutem vendosni një numër VAT të vlefshëm',
-                countryNotSupported: 'Kodi i shtetit %s nuk është i mundësuar',
                 country: 'Ju lutem vendosni një numër VAT të vlefshëm në %s',
                 countries: {
                     AT: 'Austri',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Ju lutem vendosni një kod postar të vlefshëm',
-                countryNotSupported: 'Kodi i shtetit %s nuk është i mundësuar',
                 country: 'Ju lutem vendosni një kod postar të vlefshëm në %s',
                 countries: {
                     AT: 'Austri',
+                    BG: 'Bullgari',
                     BR: 'Brazil',
                     CA: 'Kanada',
                     CH: 'Zvicër',
                     CZ: 'Republika Çeke',
                     DE: 'Gjermani',
                     DK: 'Danimarkë',
+                    ES: 'Spanjë',
                     FR: 'Francë',
                     GB: 'Mbretëria e Bashkuar',
                     IE: 'Irlandë',
+                    IN: 'Indi',
                     IT: 'Itali',
                     MA: 'Marok',
                     NL: 'Hollandë',
+                    PL: 'Poloni',
                     PT: 'Portugali',
                     RO: 'Rumani',
                     RU: 'Rusi',

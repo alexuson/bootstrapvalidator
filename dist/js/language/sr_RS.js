@@ -3,7 +3,7 @@
      * Serbian Latin language package
      * Translated by @markocrni
      */
-    $.fn.bootstrapValidator.i18n = $.extend(true, $.fn.bootstrapValidator.i18n, {
+    FormValidation.I18n = $.extend(true, FormValidation.I18n, {
         'sr_RS': {
             base64: {
                 'default': 'Molimo da unesete važeći base 64 enkodovan'
@@ -11,6 +11,9 @@
             between: {
                 'default': 'Molimo da unesete vrednost između %s i %s',
                 notInclusive: 'Molimo da unesete vrednost strogo između %s i %s'
+            },
+            bic: {
+                'default': 'Molimo da unesete ispravan BIC broj'
             },
             callback: {
                 'default': 'Molimo da unesete važeću vrednost'
@@ -67,12 +70,8 @@
             hex: {
                 'default': 'Molimo da unesete ispravan heksadecimalan broj'
             },
-            hexColor: {
-                'default': 'Molimo da unesete ispravnu heksa boju'
-            },
             iban: {
                 'default': 'Molimo da unesete ispravan IBAN broj',
-                countryNotSupported: 'Kod %s nije podržan',
                 country: 'Molimo da unesete ispravan IBAN broj %s',
                 countries: {
                     AD: 'Andore',
@@ -158,7 +157,6 @@
             },
             id: {
                 'default': 'Molimo da unesete ispravan identifikacioni broj',
-                countryNotSupported: 'Kod %s nije podržan',
                 country: 'Molimo da unesete ispravan identifikacioni broj %s',
                 countries: {
                     BA: 'Bosne i Herzegovine',
@@ -180,6 +178,7 @@
                     ME: 'Crne Gore',
                     MK: 'Makedonije',
                     NL: 'Holandije',
+                    PL: 'Poljske',
                     RO: 'Rumunije',
                     RS: 'Srbije',
                     SE: 'Švedske',
@@ -237,10 +236,10 @@
             },
             phone: {
                 'default': 'Molimo da unesete ispravan broj telefona',
-                countryNotSupported: 'Broj %s nije podržan',
                 country: 'Molimo da unesete ispravan broj telefona %s',
                 countries: {
                     AE: 'Ujedinjenih Arapskih Emirata',
+                    BG: 'Bugarske',
                     BR: 'Brazila',
                     CN: 'Kine',
                     CZ: 'Češke',
@@ -249,7 +248,9 @@
                     ES: 'Španije',
                     FR: 'Francuske',
                     GB: 'Engleske',
+                    IN: 'Индија',
                     MA: 'Maroka',
+                    NL: 'Holandije',
                     PK: 'Pakistana',
                     RO: 'Rumunije',
                     RU: 'Rusije',
@@ -299,7 +300,6 @@
             },
             vat: {
                 'default': 'Molimo da unesete ispravan VAT broj',
-                countryNotSupported: 'Kod %s nije podržan',
                 country: 'Molimo da unesete ispravan VAT broj %s',
                 countries: {
                     AT: 'Austrije',
@@ -346,22 +346,25 @@
             },
             zipCode: {
                 'default': 'Molimo da unesete ispravan poštanski broj',
-                countryNotSupported: 'Kod %s nije podržan',
                 country: 'Molimo da unesete ispravan poštanski broj %s',
                 countries: {
                     AT: 'Austrije',
+                    BG: 'Bugarske',
                     BR: 'Brazila',
                     CA: 'Kanade',
                     CH: 'Švajcarske',
                     CZ: 'Češke',
                     DE: 'Nemačke',
                     DK: 'Danske',
+                    ES: 'Španije',
                     FR: 'Francuske',
                     GB: 'Engleske',
                     IE: 'Irske',
+                    IN: 'Индија',
                     IT: 'Italije',
                     MA: 'Maroka',
                     NL: 'Holandije',
+                    PL: 'Poljske',
                     PT: 'Portugala',
                     RO: 'Rumunije',
                     RU: 'Rusije',
